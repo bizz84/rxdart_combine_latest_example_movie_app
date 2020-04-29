@@ -33,10 +33,9 @@ class MovieListItem extends StatelessWidget {
         subtitle: Text(movieUserFavourite.movie.description),
         trailing: IconButton(
           icon: Icon(
-            Icons.star,
-            color: movieUserFavourite.isFavourite
-                ? Colors.yellow
-                : Colors.grey[300],
+            Icons.favorite,
+            color:
+                movieUserFavourite.isFavourite ? Colors.red : Colors.grey[300],
           ),
           onPressed: () => _toggleFavourite(context),
         ),
