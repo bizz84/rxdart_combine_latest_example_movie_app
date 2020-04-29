@@ -30,4 +30,10 @@ class FirestoreDatabase {
         path: FirestorePath.userFavourites(uid),
         builder: (data, documentId) => UserFavourite.fromMap(data, documentId),
       );
+
+  Stream<UserFavourite> userFavouriteStream(String movieId) =>
+      _service.documentStream<UserFavourite>(
+        path: FirestorePath.userFavourite(uid, movieId),
+        builder: (data, documentId) => UserFavourite.fromMap(data, documentId),
+      );
 }
