@@ -1,16 +1,25 @@
-# rxdart_combine_latest_example_movie_app
+# RxDart by example: combineLatest and data modeling with Firestore
 
-A new Flutter project.
+A simple movie favourites app showcasing how to use `combineLatest` to combine data from two Firestore collections into one stream.
 
-## Getting Started
+## Running the project with Firebase
 
-This project is a starting point for a Flutter application.
+To use this project with Firebase, some configuration steps are required.
 
-A few resources to get you started if this is your first Flutter project:
+- Create a new project with the Firebase console.
+- Add iOS and Android apps in the Firebase project settings.
+- On Android, use `com.example.rxdart_combine_latest_example_movie_app` as the package name.
+- then, [download and copy](https://firebase.google.com/docs/flutter/setup#configure_an_android_app) `google-services.json` into `android/app`.
+- On iOS, use `com.example.rxdartCombineLatestExampleMovieApp` as the bundle ID.
+- then, [download and copy](https://firebase.google.com/docs/flutter/setup#configure_an_ios_app) `GoogleService-Info.plist` into `iOS/Runner`, and add it to the Runner target in Xcode.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+Additionally, follow these steps:
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Enable anonymous sign-in in the Firebase authentication settings
+- Copy the contents of `firestore.rules` into the Rules page for the Firestore database
+
+See this document for full instructions:
+
+- [https://firebase.google.com/docs/flutter/setup](https://firebase.google.com/docs/flutter/setup) 
+
+## [License: MIT](LICENSE.md)
