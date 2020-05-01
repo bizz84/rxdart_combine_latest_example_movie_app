@@ -14,20 +14,15 @@ class MoviesListViewModel {
     return Rx.combineLatest2(
         database.moviesStream(), database.userFavouritesStream(),
         (List<Movie> movies, List<UserFavourite> userFavourites) {
-      try {
-        return movies.map((movie) {
-          final userFavourite = userFavourites?.firstWhere(
-              (userFavourite) => userFavourite.movieId == movie.id,
-              orElse: () => null);
-          return MovieUserFavourite(
-            movie: movie,
-            isFavourite: userFavourite?.isFavourite ?? false,
-          );
-        }).toList();
-      } catch (e) {
-        print(e);
-        return [];
-      }
+      return movies.map((movie) {
+        final userFavourite = userFavourites?.firstWhere(
+            (userFavourite) => userFavourite.movieId == movie.id,
+            orElse: () => null);
+        return MovieUserFavourite(
+          movie: movie,
+          isFavourite: userFavourite?.isFavourite ?? false,
+        );
+      }).toList();
     });
   }
 }
