@@ -30,26 +30,4 @@ class MoviesListViewModel {
       }
     });
   }
-
-  /// returns all the user's favourite movies (not the entire list)
-  Stream<List<MovieUserFavourite>> userFavouriteMoviesStream() {
-    return Rx.combineLatest2(
-        database.moviesStream(), database.userFavouritesStream(),
-        (movies, userFavourites) {
-      try {
-        return userFavourites.map((userFavourite) {
-          final movie = movies.firstWhere(
-              (movie) => userFavourite.movieId == movie.id,
-              orElse: () => null);
-          return MovieUserFavourite(
-            movie: movie,
-            isFavourite: userFavourite?.isFavourite ?? false,
-          );
-        }).toList();
-      } catch (e) {
-        print(e);
-        return [];
-      }
-    });
-  }
 }

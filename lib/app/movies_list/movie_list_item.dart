@@ -11,19 +11,6 @@ class MovieListItem extends StatelessWidget {
   final MovieUserFavourite movieUserFavourite;
   final VoidCallback onFavouriteToggle;
 
-  Future<void> _toggleFavourite(BuildContext context) async {
-    try {
-      final database = Provider.of<FirestoreDatabase>(context, listen: false);
-      await database.setUserFavourite(UserFavourite(
-        isFavourite: !movieUserFavourite.isFavourite,
-        movieId: movieUserFavourite.movie.id,
-      ));
-    } catch (e) {
-      // TODO: handle exceptions
-      print(e);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -41,5 +28,18 @@ class MovieListItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _toggleFavourite(BuildContext context) async {
+    try {
+      final database = Provider.of<FirestoreDatabase>(context, listen: false);
+      await database.setUserFavourite(UserFavourite(
+        isFavourite: !movieUserFavourite.isFavourite,
+        movieId: movieUserFavourite.movie.id,
+      ));
+    } catch (e) {
+      // TODO: handle exceptions
+      print(e);
+    }
   }
 }
