@@ -2,6 +2,10 @@
 
 A simple movie favourites app showcasing how to use `combineLatest` to combine data from two Firestore collections into one stream.
 
+Full tutorial here:
+
+- [RxDart by example: combineLatest and data modeling with Firestore](https://codewithandrea.com/videos/2020-05-04-rx-dart-by-example-combine-latest/)
+
 ## Running the project with Firebase
 
 To use this project with Firebase, some configuration steps are required.
